@@ -23,7 +23,6 @@ public class ServicesPresent<T> {
     }
 
     public void successPostGetData(T data) {
-        //Timber.d(this.getClass().getName()+" == fetchdata -> "+data);
 
         servicesListener.successPostGetData(data);
     }

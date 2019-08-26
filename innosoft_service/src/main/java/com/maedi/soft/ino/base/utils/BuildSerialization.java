@@ -43,13 +43,13 @@ public class BuildSerialization<E> implements Serializable {
 
     public void serialization(E data, Object filename) {
         try {
-            Timber.d(TAG+" set serialization - data = "+data);
             File cDir = f.getBaseContext().getCacheDir();
             FileOutputStream fileOut = new FileOutputStream(new File(cDir.getPath() + "/" + filename));
             ObjectOutputStream out = new ObjectOutputStream(fileOut);
             out.writeObject(data);
             out.close();
             fileOut.close();
+
         } catch (IOException i) {
             i.printStackTrace();
             Timber.d(TAG+" error set serialization IO "+i.getMessage());
@@ -64,10 +64,8 @@ public class BuildSerialization<E> implements Serializable {
             typeFunc = (E) in.readObject();
 
             listener.getDeserialization((E) typeFunc);
-
             in.close();
             fileIn.close();
-
 
         } catch (IOException i) {
             i.printStackTrace();

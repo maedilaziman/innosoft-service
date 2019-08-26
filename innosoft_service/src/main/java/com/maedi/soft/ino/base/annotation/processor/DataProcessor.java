@@ -40,39 +40,10 @@ public class DataProcessor<T> {
         this.listener = listen;
     }
 
-    //private static DataProcessor instance;
-    //public static class CreateDataProcessor<T>
-    //{
-    //    T buildStr;
-    //    T buildJsonObj;
-    //    T[] d;
-    //    public CreateDataProcessor buildString(T data)
-    //    {
-    //        this.buildStr = data;
-    //        d[0] = this.buildStr;
-    //        return this;
-    //    }
-    //    public CreateDataProcessor buildJsonObject(T data)
-    //    {
-    //        this.buildJsonObj = data;
-    //        d[1] = this.buildJsonObj;
-    //        return this;
-    //    }
-    //    public DataProcessor runProcessor(T[] data)
-    //    {
-    //        return buildInstance(d);
-    //    }
-    //}
-    //public static DataProcessor buildInstance(Object[] data)
-    //{
-    //    return instance = new DataProcessor();
-    //}
-
     public T getObjectFieldFromProcessor(Class<?> clazz, T data)
     {
         LocalAnnotationProcessor annotationProcessor = new LocalAnnotationProcessor.StartBuildProcessor().setClazz(clazz).setAnnotationType(listener.bindServiceType()).setListener(new LocalAnnotationProcessor.CommLocalAnnotationProcessor() {
             T res;
-
             @Override
             public void setWrapResult(Object result) {
                 res = (T) result;
@@ -84,11 +55,12 @@ public class DataProcessor<T> {
                     try {
                         if (listener.buildString())
                         {
-                            Timber.d("listener.buildString()");
+                            //////////////////////////
+                            // add logic here if needed
+                            /////////////////////////
                         }
                         else if (listener.buildJsonObject())
                         {
-                            Timber.d("listener.buildJsonObject()");
                             JSONObject jsonBody = new JSONObject();
                             String[] keyParam = (String[]) res;
                             String[] valParam = (String[]) data;
@@ -99,32 +71,26 @@ public class DataProcessor<T> {
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
-
                             res = (T) jsonBody.toString();
                         }
                         else if (listener.buildMultipart())
                         {
-                            Timber.d("listener.buildMultipart()");
                             String[] keyParam = (String[]) res;
 
                             if(data instanceof List)
                             {
-                                Timber.d("data buildMultipart instanceof List - "+keyParam.length+" | "+data);
                                 List list  = (List) data;
                                 Map buildMapData = new HashMap<>();
                                 int i = 0;
                                 for(Object o : list)
                                 {
-                                    Timber.d("data buildMultipart keyparam - "+keyParam[i]);
                                     buildMapData.put(keyParam[i], o);
                                     i++;
                                 }
-
                                 res = (T) buildMapData;
                             }
                             else
                             {
-                                Timber.d("data buildMultipart not instanceof List - "+data);
                                 res = null;
                                 throw new RuntimeException("For build Multipart data must be in List");
                             }

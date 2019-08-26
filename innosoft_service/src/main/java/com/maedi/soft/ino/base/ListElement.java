@@ -31,9 +31,4 @@ public class ListElement<E> extends ArrayList<E> implements Serializable {
         super.add(elem);
         return true;
     }
-
-    //public boolean add(ListElement<? super ServiceTypeCategory> listElement) {
-    //    super.add((E) listElement);
-    //    return true;
-    //}
 }

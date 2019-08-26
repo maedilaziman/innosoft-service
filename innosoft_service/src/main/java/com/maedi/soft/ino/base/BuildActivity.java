@@ -82,7 +82,6 @@ public abstract class BuildActivity<T> extends BaseActivity<T> {
         {
             String clazzName = this.getClass().asSubclass(this.getClass()).getName().toString();
             Class clz = this.getApplicationContext().getClass();
-            Timber.d(TAG+" - GET_CLASS_APPLICATION_CONTEXT - "+clz);
             DataProcessor.CommDataProcessor listenDataProcessor = new DataProcessor.CommDataProcessor() {
 
                 @Override
@@ -119,7 +118,6 @@ public abstract class BuildActivity<T> extends BaseActivity<T> {
     }
 
     private void cameraPermissionAbove6(FragmentActivity f){
-
         EasyPermissions.requestPermissions(f, "Access for storage",
                 DataUtility.PERMISSIONS_REQUEST_CAMERA_ABOVE6, DataUtility.galleryPermissions);
     }

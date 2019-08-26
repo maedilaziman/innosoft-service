@@ -46,7 +46,6 @@ public class FileUploaderProperty implements StreamRequestBody.CommStreamRequest
 
     @Override
     public void onRequestProgress(long bytesWritten, long contentLength) {
-        //int current_percent = (int)(100 * bytesWritten / contentLength);
         listener.onCurrentProgress(bytesWritten, contentLength);
     }
 }

@@ -188,12 +188,10 @@ public class CallApiService<T> implements ApiServiceListener<T> {
 
     @Override
     public void sendRequestData_withRetrofit_RequestBody(T clazz, T method, T data) {
-        Timber.d("Data To Verify - "+dataVerify);
         if(null != dataVerify) {
             boolean isDataHasNullOrZero = false;
             for (Object o : dataVerify)
             {
-                Timber.d("Data To Verify_Object - "+o);
                 if (null == o || o.equals("") || o.equals(0)) {
                     isDataHasNullOrZero = true;
                     break;
@@ -201,7 +199,6 @@ public class CallApiService<T> implements ApiServiceListener<T> {
             }
             if (isDataHasNullOrZero)
             {
-                Timber.d("Data To Verify_isDataHasNullOrZero - "+isDataHasNullOrZero);
                 servicesPresent.verifyDataNonNullOrZero(isDataHasNullOrZero);
                 return;
             }
@@ -228,9 +225,6 @@ public class CallApiService<T> implements ApiServiceListener<T> {
                     try {
                         resData = resBody.string();
                         strResError = null == resError ? "" : resError.string();
-
-                        Timber.d("data_result_success_submit: \n"+resCode+"\n"+resData+"\n"+resError+"\n"+strResError);
-
                         if(null != servicesPresent)
                         {
                             if(response.isSuccessful()) {
@@ -245,7 +239,6 @@ public class CallApiService<T> implements ApiServiceListener<T> {
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-
                     dismisLoadingContentDialog(loadingContentDialog);
                 }
 
@@ -255,7 +248,6 @@ public class CallApiService<T> implements ApiServiceListener<T> {
                     {
                         servicesPresent.errorPostGetData(t.getMessage());
                     }
-
                     dismisLoadingContentDialog(loadingContentDialog);
                 }
             });
@@ -287,23 +279,19 @@ public class CallApiService<T> implements ApiServiceListener<T> {
                 .subscribeWith(new DisposableSingleObserver<Object>() {
                     @Override
                     public void onSuccess(Object data) {
-                        Timber.d(TAG + " - ON SUCCESS GET SERVICE RETROFIT - "+data);
                         if(null != servicesPresent)
                         {
                             servicesPresent.successPostGetData(data.toString());
                         }
-
                         dismisLoadingContentDialog(loadingContentDialog);
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        //Timber.d(TAG + " - ON ERROR GET SERVICE RETROFIT - "+e.getMessage());
                         if(null != servicesPresent)
                         {
                             servicesPresent.errorPostGetData(e.getMessage());
                         }
-
                         dismisLoadingContentDialog(loadingContentDialog);
                     }
                 });
@@ -354,39 +342,6 @@ public class CallApiService<T> implements ApiServiceListener<T> {
             Class<T> c = (Class<T>) clazz;
             Method mt = Class.forName(c.getName()).getDeclaredMethod((String) method, List.class);
 
-            /*
-            List<String> files = (List<String>) data;
-            FileUploaderProperty fileUploaderModel = new FileUploaderProperty(nextCommFileUploadListener);
-            Timber.d(TAG + " - GET FILES ON UPLOAD_FILES - "+files);
-
-            String[] responses = new String[files.size()];
-            CommNextFileUploadCallApiServiceListener commNextFileUploadCallApiServiceListener = new CommNextFileUploadCallApiServiceListener() {
-                @Override
-                public void onNext(Object numberFiles) {
-                    int indexFiles = Integer.parseInt(numberFiles.toString());
-                    Timber.d(TAG + " - GET INDEX FILES ON_NEXT ON UPLOAD_FILES - "+indexFiles);
-                    if(files.size() > 1){
-                        if(indexFiles < files.size()){
-                            String url = files.get(indexFiles);
-                            Timber.d(TAG + " - GET URL ON_NEXT "+indexFiles+" ON UPLOAD_FILES - "+url);
-                            uploadFile(mt, c, fileUploaderModel, url, indexFiles, responses, this);
-                        }else{
-                            Timber.d(TAG + " - ON COMPLETE ON_NEXT "+indexFiles+" ON UPLOAD_FILES - "+responses);
-                            fileUploadListener.uploadCompleted(responses);
-                        }
-                    }else{
-                        Timber.d(TAG + " - ON COMPLETE ON_NEXT "+indexFiles+" ON UPLOAD_FILES - "+responses);
-                        fileUploadListener.uploadCompleted(responses);
-                    }
-                }
-            };
-
-            nextFileUploadCallApiServiceListener = commNextFileUploadCallApiServiceListener;
-            String url = files.get(0);
-            Timber.d(TAG + " - GET URL 0 ON UPLOAD_FILES - "+url);
-            uploadFile(mt, c, fileUploaderModel, url, 0, responses, nextFileUploadCallApiServiceListener);
-            */
-
             if(data instanceof Map) {
                 Map mapData = (Map) data;
 
@@ -410,7 +365,6 @@ public class CallApiService<T> implements ApiServiceListener<T> {
                             numberFileUploaded++;
                             totalFileUploaded = numberFileUploaded * contentLength;
                             //check if calc not accurate
-                            Timber.d("SIZE MULTIPART LIST FILES ON UPLOAD_FILE - "+listFiles.size()+" | "+numberFileUploaded);
                             if(listFiles.size() == numberFileUploaded)
                             {
                                 if(totalPercentageFileUpload != 100)
@@ -421,15 +375,11 @@ public class CallApiService<T> implements ApiServiceListener<T> {
                         {
                             totalPercentageFileUpload = (int) (100 * (totalFileUploaded + bytesWritten) / totalFileLength);
                         }
-
-                        //Timber.d("UPLOAD PROGRESS ON UPLOAD_FILES - "+current_percent+" | "+totalPercentageFileUpload+" | "+numberFileUploaded);
                         fileUploadListener.setUploadProgress(current_percent, totalPercentageFileUpload, numberFileUploaded);
                     }
                 };
 
                 FileUploaderProperty fileUploaderModel = new FileUploaderProperty(nextCommFileUploadListener);
-
-                Timber.d("MAPPING DATA ON UPLOAD_FILE - "+mapData);
                 for(Object o : mapData.keySet())
                 {
                     String IMAGE_PATTERN   = "([^\\s]+(\\.(?i)(jpg|jpeg|png|gif|bmp))$)";
@@ -438,7 +388,6 @@ public class CallApiService<T> implements ApiServiceListener<T> {
                     Object s = mapData.get(o);
                     String sdummy = s.toString();
 
-                    Timber.d("CHECK DATA WHETER IS A LIST ON UPLOAD_FILE CONTENT IMAGE - "+sdummy+" | "+o.toString());
                     if(sdummy.startsWith("[") &&
                             sdummy.lastIndexOf("]") != -1)
                     {
@@ -447,7 +396,6 @@ public class CallApiService<T> implements ApiServiceListener<T> {
 
                             if(pattern.matcher(url).matches())
                             {
-                                Timber.d("DATA SUFFIX IMAGE ON UPLOAD_FILE - "+url+" | "+o.toString());
                                 String[] mediaData = o.toString().split(EasyData.valueOf("DVD_MEDIA_TYPE").value);
                                 setMultiPartFile(mediaData[0], url, mediaData[1], listMultipart, fileUploaderModel);
                                 listFiles.add(url);
@@ -488,9 +436,6 @@ public class CallApiService<T> implements ApiServiceListener<T> {
                         try {
                             resData = resBody.string();
                             strResError = null == resError ? "" : resError.string();
-
-                            Timber.d("GET RESPONSE SUCCESS ON UPLOAD_FILE: \n" + resCode + "\n" + resData + "\n" + resError + "\n" + strResError);
-
                             if (null != servicesPresent)
                             {
                                 if (response.isSuccessful()) {
@@ -505,7 +450,6 @@ public class CallApiService<T> implements ApiServiceListener<T> {
                                 fileUploadListener.showErrorMessage("Error code: " + resCode + ", with message: " + strResError);
                             }
 
-
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
@@ -513,7 +457,6 @@ public class CallApiService<T> implements ApiServiceListener<T> {
 
                     @Override
                     public void onFailure(Call<ResponseBody> call, Throwable t) {
-                        Timber.d(TAG + " - GET RESPONSE ERROR ON UPLOAD_FILES - " + t.getMessage());
                         if (null != servicesPresent)
                         {
                             servicesPresent.errorPostGetData(t.getMessage());
@@ -538,60 +481,6 @@ public class CallApiService<T> implements ApiServiceListener<T> {
             e.printStackTrace();
         }
     }
-
-    /*
-    private void uploadFile(Method mt, Class<T> c, FileUploaderProperty fileUploaderModel, String url, final int numberFiles, String[] responses, CommNextFileUploadCallApiServiceListener listener)
-    {
-        try {
-            MultipartBody.Part filePart = fileUploaderModel.createMultipartBody(url);
-            Call<JsonElement> callService = (Call<JsonElement>) mt.invoke(RetrofitApiClient.getClient(context, null).create(c), filePart);
-
-            callService.enqueue(new Callback<JsonElement>() {
-                @Override
-                public void onResponse(Call<JsonElement> call,   Response<JsonElement> response) {
-                    if(response.isSuccessful()){
-                        JsonElement jsonElement = response.body();
-                        responses[numberFiles] = jsonElement.toString();
-                        Timber.d(TAG + " - GET RESPONSE SUCCESS ON UPLOAD_FILES - "+jsonElement+" | "+jsonElement.toString());
-                    }
-                    int c = numberFiles;
-                    c++;
-                    Timber.d(TAG + " - GET INDEX FILES BEFORE_NEXT ON UPLOAD_FILES - "+c+" | "+response);
-                    listener.onNext(c);
-                }
-
-                @Override
-                public void onFailure(Call<JsonElement> call, Throwable t) {
-                    Timber.d(TAG + " - GET RESPONSE ERROR ON UPLOAD_FILES - "+t.getMessage());
-                    fileUploadListener.showErrorMessage(t.getMessage());
-                }
-            });
-
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        }
-    }
-    */
-
-    //private String getFilePath(Uri selectedFile) {
-    //    if (selectedFile == null) {
-    //        return null;
-    //    }
-    //    String[] filePathColumn = {MediaStore.Images.Media.DATA};
-    //    android.database.Cursor cursor = context.getContentResolver().query(selectedFile, filePathColumn, null, null, null);
-    //    if (cursor == null) {
-    //        return null;
-    //    }
-
-    //    cursor.moveToFirst();
-    //    int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
-    //    String filePath = cursor.getString(columnIndex);
-    //    cursor.close();
-
-    //    return filePath;
-    //}
 
     @Override
     public boolean stillLoadingData() {

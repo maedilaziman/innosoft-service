@@ -68,8 +68,6 @@ public abstract class BaseActivity<T> extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Timber.d(TAG + " - ON CREATE CALLED");
-
         int layout = baseContentView();
         setContentView(layout);
         onCreateActivity(savedInstanceState);
@@ -84,13 +82,12 @@ public abstract class BaseActivity<T> extends AppCompatActivity {
     @Override
     public void onStart() {
         super.onStart();
-        Timber.d(TAG + " - ON START CALLED - VISIBLE TO USER : "+isViewVisible);
         if(isViewVisible)
         {
             final View v = createListenerForActivity().setViewTreeObserverActivity();
             if(null == v)
             {
-                Timber.d(TAG + " - ON START CALLED NO SET VIEW TREE OBSERVER");
+                Timber.d(TAG + " - NOTHING TO SET VIEW TREE OBSERVER");
             }
             else {
                 ViewTreeObserver vto = v.getViewTreeObserver();
@@ -113,20 +110,20 @@ public abstract class BaseActivity<T> extends AppCompatActivity {
             Intent intent = getIntent();
             if(null == intent)
             {
-                Timber.d(TAG + " - ON START CALLED NO BUNDLE INTENT DATA FROM ACTIVITY");
+                Timber.d(TAG + " - NO BUNDLE INTENT DATA FROM ACTIVITY");
             }
             else
             {
                 String tag_intent = createListenerForActivity().getTagDataIntentFromActivity();
                 if(null == tag_intent)
                 {
-                    Timber.d(TAG + " - ON START CALLED NO TAG INTENT DATA FROM ACTIVITY");
+                    Timber.d(TAG + " - NO TAG INTENT DATA FROM ACTIVITY");
                 }
                 else
                 {
                     MapDataParcelable dataParcel = intent.getExtras().getParcelable(tag_intent);
                     if (null == dataParcel) {
-                        Timber.d(TAG + " - ON START CALLED NO PARCELABLE INTENT DATA FROM ACTIVITY");
+                        Timber.d(TAG + " - NO PARCELABLE INTENT DATA FROM ACTIVITY");
                     } else {
                         createListenerForActivity().getMapDataIntentFromActivity(dataParcel);
                     }
@@ -141,7 +138,6 @@ public abstract class BaseActivity<T> extends AppCompatActivity {
     @Override
     public void onResume() {
         super.onResume();
-        Timber.d(TAG + " - ON RESUME CALLED");
         onActivityResume();
     }
 
@@ -152,7 +148,6 @@ public abstract class BaseActivity<T> extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         isViewVisible = false;
-        Timber.d(TAG + " - ON PAUSE CALLED - VISIBLE TO USER : "+isViewVisible);
         onActivityPause();
     }
 
@@ -161,14 +156,12 @@ public abstract class BaseActivity<T> extends AppCompatActivity {
     public void onStop() {
         super.onStop();
         isViewVisible = false;
-        Timber.d(TAG + " - ON STOP CALLED - VISIBLE TO USER : "+isViewVisible);
         onActivityStop();
     }
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         //if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {}
-        Timber.d(TAG + " - ON KEYDOWN CALLED");
         onActivityKeyDown(keyCode, event);
         return super.onKeyDown(keyCode, event);
     }
@@ -178,14 +171,13 @@ public abstract class BaseActivity<T> extends AppCompatActivity {
         Intent result = createListenerForActivity().setResultIntent();
         if(null == result)
         {
-            Timber.d(TAG + " - ON FINISH CALLED NO RESULT INTENT");
+            Timber.d(TAG + " - NO RESULT INTENT");
         }
         else
         {
             setResult(RESULT_OK, result);
         }
         super.finish();
-        Timber.d(TAG + " - ON FINISH CALLED");
         createListenerForActivity().setAnimationOnCloseActivity(firstAnimationOpenActivity, secondAnimationOpenActivity);
         onActivityFinish();
     }
@@ -194,21 +186,18 @@ public abstract class BaseActivity<T> extends AppCompatActivity {
     @Override
     protected void onRestart() {
         super.onRestart();
-        Timber.d(TAG + " - ON RESTART CALLED");
         onActivityRestart();
     }
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        Timber.d(TAG + " - ON SAVE INSTANCE STATE CALLED");
         onActivitySaveInstanceState(outState);
     }
 
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        Timber.d(TAG + " - ON RESTORE INSTANCE STATE CALLED");
         onActivityRestoreInstanceState(savedInstanceState);
     }
 
@@ -216,21 +205,17 @@ public abstract class BaseActivity<T> extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Timber.d(TAG + " - ON DESTROY CALLED");
         onActivityDestroy();
     }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
-        Timber.d(TAG + " - ON ACTIVITY REQUEST PERMISSIONS CALLED");
         onActivityRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        Timber.d(TAG + " - ON ACTIVITY RESULT CALLED");
         onActivityMResult(requestCode, resultCode, data);
     }
-
 }
