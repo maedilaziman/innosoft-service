@@ -30,9 +30,6 @@ public class LaunchActivity extends BuildActivity<View> implements ActivityListe
 
     private final String TAG = this.getClass().getName();
 
-    @BindView(R.id.post3)
-    Button button3;
-
     @OnClick(R.id.post1)
     public void FetchWithQuery() {
         hitFetchWithQuery("exampleFetchWithQuery");
@@ -250,13 +247,13 @@ public class LaunchActivity extends BuildActivity<View> implements ActivityListe
     @Override
     public void successPostGetData(Object data) {
         Timber.d(TAG + " - ON SUCCESS FETCH DATA [ RETROFIT ] - "+data);
-        Toast.makeText(this, "SUCCESS FETCH DATA: "+data.toString(), Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "SUCCESS FETCH DATA: "+data.toString(), Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void errorPostGetData(Object data) {
         Timber.d(TAG + " - ON ERROR FETCH DATA [ RETROFIT ] - "+data);
-        Toast.makeText(this, "ERROR FETCH DATA: "+data.toString(), Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "ERROR FETCH DATA: "+data.toString(), Toast.LENGTH_SHORT).show();
     }
 
     @Override
