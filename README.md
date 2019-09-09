@@ -27,7 +27,7 @@ Then, add the library to your module build.gradle
 <li>Customize Loading dialog when call API Service.</li>
 </ul>
 <h2>Usage</h2>
-First you need to set @HeaderService property in Application context class,</br>and if you want to set analytics, you just add @SetAnalytics(enabled = false) default is true.</br>
+First you need to set @HeaderService property in Application context class,</br>and if you want to set analytics, you just add @SetAnalytics default is true.</br>
 you can look this example, Application context class:
 </br>
 </br>
