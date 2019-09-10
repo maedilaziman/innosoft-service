@@ -4,12 +4,16 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.maedi.example.easy.service.adapter.ListUniversalSheet;
 import com.maedi.soft.ino.base.BuildActivity;
 import com.maedi.soft.ino.base.annotation.BuilderAnnotations.PostFieldParam;
 import com.maedi.soft.ino.base.annotation.processor.DataProcessor;
@@ -19,6 +23,10 @@ import com.maedi.soft.ino.base.presenter.ApiServicePresent;
 import com.maedi.soft.ino.base.store.MapDataParcelable;
 import com.maedi.soft.ino.base.utils.CallApiService;
 import com.maedi.soft.ino.base.utils.EasyData;
+import com.maedi.soft.ino.base.view.UniversalSheet;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -26,9 +34,15 @@ import butterknife.OnClick;
 import timber.log.Timber;
 
 @SuppressLint("TimberArgCount")
-public class LaunchActivity extends BuildActivity<View> implements ActivityListener<Integer>, ServicesListener {
+public class LaunchActivity extends BuildActivity<View> implements ActivityListener<Integer>, ServicesListener, UniversalSheet.CommUniversalSheetListener {
 
     private final String TAG = this.getClass().getName();
+
+    @BindView(R.id.universal_sheet)
+    UniversalSheet universalSheet;
+
+    @BindView(R.id.listView)
+    RecyclerView listView;
 
     @OnClick(R.id.post1)
     public void FetchWithQuery() {
@@ -39,6 +53,11 @@ public class LaunchActivity extends BuildActivity<View> implements ActivityListe
     public void FetchWithRequestBody() {
         String[] valueField = new String[]{"1"};
         hitFetchWithRequestBody("exampleFetchWithRequestBody", valueField);
+    }
+
+    @OnClick(R.id.post3)
+    public void OpenUniversalSheet() {
+        universalSheet.opened();
     }
 
     private ApiServicePresent apiServicePresent;
@@ -201,7 +220,36 @@ public class LaunchActivity extends BuildActivity<View> implements ActivityListe
 
     @Override
     public void onBuildActivityCreated() {
+        List sampleList = new ArrayList();
+        sampleList.add("CAR WASH");
+        sampleList.add("HOME CLEANING");
+        sampleList.add("ROOM CLEANING");
+        sampleList.add("CAR REPAIR");
+        sampleList.add("BICYCLE REPAIR");
+        sampleList.add("TV REPAIR");
+        sampleList.add("ICEBOX REPAIR");
 
+        sampleList.add("CAT");
+        sampleList.add("RABBIT");
+        sampleList.add("ELEPHANT");
+        sampleList.add("KANGAROO");
+        sampleList.add("TIGER");
+        sampleList.add("LION");
+        sampleList.add("FISH");
+
+        sampleList.add("BMW");
+        sampleList.add("MERCEDES");
+        sampleList.add("TOYOTA");
+        sampleList.add("HONDA");
+        sampleList.add("SUZUKI");
+        sampleList.add("LAMBORGHINI");
+        sampleList.add("FERRARI");
+
+        listView.setLayoutManager(new LinearLayoutManager(this));
+        ListUniversalSheet adapter = new ListUniversalSheet(this, R.layout.list_universal_sheet, (ArrayList) sampleList);
+        listView.setAdapter(adapter);
+
+        universalSheet.setUniversalSheetCallBack(this);
     }
 
     @Override
@@ -259,5 +307,33 @@ public class LaunchActivity extends BuildActivity<View> implements ActivityListe
     @Override
     public boolean verifyDataNonNullOrZero(boolean isDataHasNullOrZero) {
         return false;
+    }
+
+    @Override
+    public void onOpened() {
+
+    }
+
+    @Override
+    public void onClosed() {
+
+    }
+
+    @Override
+    public void onHidden() {
+
+    }
+
+    @Override
+    public void getHeaderView(View v) {
+        if(null != v) {
+            ImageView closeDialog = (ImageView) v.findViewById(R.id.close);
+            closeDialog.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    universalSheet.closed();
+                }
+            });
+        }
     }
 }

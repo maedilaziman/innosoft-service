@@ -8,6 +8,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.support.v4.app.FragmentActivity;
 
+import com.google.gson.JsonObject;
 import com.maedi.soft.ino.base.dialog.LoadingContentDialog;
 import com.maedi.soft.ino.base.func_interface.ApiServiceListener;
 import com.maedi.soft.ino.base.func_interface.CommFileUpload;
@@ -223,7 +224,9 @@ public class CallApiService<T> implements ApiServiceListener<T> {
                     ResponseBody resError = response.errorBody();
                     String strResError = null;
                     try {
-                        resData = resBody.string();
+                        JsonObject jo = new JsonObject();
+                        jo.addProperty("Error", "unknown error: null");
+                        resData = null == resBody ? jo.toString() : resBody.string();
                         strResError = null == resError ? "" : resError.string();
                         if(null != servicesPresent)
                         {
