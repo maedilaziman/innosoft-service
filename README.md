@@ -61,7 +61,17 @@ You can see more detailed examples in the <p><a href="https://github.com/maedila
 <br/>
 And this example call Universal Sheet from your activity
 <br/>
-<p>@BindView(R.id.universal_sheet)@BindView(R.id.universal_sheet)&nbsp; &nbsp; UniversalSheet universalSheet;<br />@OnClick(R.id.open)&nbsp; &nbsp; public void open() {&nbsp; &nbsp; &nbsp; &nbsp; universalSheet.opened();&nbsp; &nbsp; }<br />you can implement Interface Universal Sheet<br />UniversalSheet.CommUniversalSheetListener callback = new UniversalSheet.CommUniversalSheetListener(){<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; @Override&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; public void onOpened() {&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; @Override&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; public void onClosed() {<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; @Override&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; public void onHidden() {<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; @Override&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; public void getHeaderView(View v) { //v is your header view<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }&nbsp; &nbsp; &nbsp; &nbsp; };<br />universalSheet.setUniversalSheetCallBack(this);</p>
+<pre><p>@BindView(R.id.universal_sheet)
+UniversalSheet universalSheet;
+<br />@OnClick(R.id.open)
+public void open() {
+&nbsp; &nbsp; universalSheet.opened();
+}
+
+you can implement Interface Universal Sheet<br />UniversalSheet.CommUniversalSheetListener callback = new UniversalSheet.CommUniversalSheetListener(){<br />	@Override&nbsp; public void onOpened() { }<br />	@Override&nbsp; public void onClosed() {&nbsp; }<br />&nbsp; &nbsp; 	@Override&nbsp; public void onHidden() {&nbsp; }<br />&nbsp; &nbsp; &nbsp; &nbsp; @Override&nbsp; public void getHeaderView(View v) {
+               		 //v is your header view<br />	}
+ };<br />universalSheet.setUniversalSheetCallBack(this);</p>
+</pre>
 That's it!
 </br>
 <h2>License</h2>
