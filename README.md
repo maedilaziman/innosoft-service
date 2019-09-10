@@ -27,8 +27,12 @@ Then, add the library to your module build.gradle
 <li>Customize Loading dialog when call API Service.</li>
 </ul>
 <ul>
-<li>Features release 1.0.1</li>
-<li>You can easily make sheets from top, bottom, left or right</li>
+<h2>Features release 1.0.1</h2>
+You can easily make sheets from top, bottom, left or right
+<li>Create sheet from top</li>
+<li>Create sheet from Bottom</li>
+<li>Create sheet from Left</li>
+<li>Create sheet from Right</li>
 </ul>
 <h2>Usage</h2>
 First you need to set @HeaderService property in Application context class,</br>and if you want to set analytics, you just add @SetAnalytics default is true.</br>
