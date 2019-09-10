@@ -57,6 +57,7 @@ you can look this activity layout example:
 </br>
 <pre>&lt;com.abc.mlz.zz.base.view.FrameUniversalSheet<br />    android:id="@+id/layout_main_leftdialog"<br />    android:layout_width="match_parent"<br />    android:layout_height="match_parent"<br />    android:orientation="vertical"<br />    android:visibility="gone"&gt;<br /><br />    &lt;com.abc.mlz.zz.base.view.UniversalSheet<br />        android:id="@+id/layout_submain_leftdialog"<br />        android:layout_width="match_parent"<br />        android:layout_height="match_parent"<br />        android:orientation="vertical"<br />        app:uniSheetPos="bottom"<br />        app:uniSheetStartSize="200dp"<br />        app:uniSheetLength="400dp"<br />        app:uniSheetRadius="10dp"<br />        app:uniSheetBackgroundColor="@color/white"<br />        app:uniSheetHeader="@layout/your header layout"<br />        app:uniSheetHeaderSize="80dp"&gt;<br /><br />        &lt;android.support.v4.widget.NestedScrollView<br />            android:id="@+id/nested_sv"<br />            android:orientation="vertical"<br />            android:layout_width="match_parent"<br />            android:layout_height="wrap_content"&gt;<br /><br />        &lt;LinearLayout<br />            android:layout_width="match_parent"<br />            android:layout_height="wrap_content"<br />            android:orientation="vertical"&gt;<br />       &lt;/LinearLayout&gt;
 <br />&lt;/android.support.v4.widget.NestedScrollView&gt;<br /><br />  &lt;/com.abc.mlz.zz.base.view.UniversalSheet&gt;<br /><br />&lt;/com.abc.mlz.zz.base.view.FrameUniversalSheet&gt;</pre>
+<br/>
 And this example call Universal Sheet from your activity
 <br/>
 <pre><p>@BindView(R.id.universal_sheet)
@@ -69,10 +70,9 @@ public void open() {
 you can implement Interface Universal Sheet<br />UniversalSheet.CommUniversalSheetListener callback = new UniversalSheet.CommUniversalSheetListener(){<br />	@Override&nbsp; public void onOpened() { }<br />	@Override&nbsp; public void onClosed() {&nbsp; }<br />&nbsp; &nbsp; 	@Override&nbsp; public void onHidden() {&nbsp; }<br />&nbsp; &nbsp; &nbsp; &nbsp; @Override&nbsp; public void getHeaderView(View v) {
                		 //v is your header view<br />	}
  };<br />universalSheet.setUniversalSheetCallBack(callback);</p>
- <br/>
- You can see more detailed examples in the <p><a href="https://github.com/maedilaziman/innosoft-service/tree/master/app/src/main/java/com/maedi/example/easy/service">sample app</a></p>
-<br/>
 </pre>
+You can see more detailed examples in the <p><a href="https://github.com/maedilaziman/innosoft-service/tree/master/app/src/main/java/com/maedi/example/easy/service">sample app</a></p>
+<br/>
 That's it!
 </br>
 <h2>License</h2>
