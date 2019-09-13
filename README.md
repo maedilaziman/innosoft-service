@@ -75,8 +75,8 @@ you can look this activity layout example:
 <br/>
 <pre>&lt;com.abc.mlz.zz.base.view.FrameUniversalSheet<br />    android:id="@+id/layout_main_leftdialog"<br />    android:layout_width="match_parent"<br />    android:layout_height="match_parent"<br />    android:orientation="vertical"<br />    android:visibility="gone"&gt;<br /><br />    &lt;com.abc.mlz.zz.base.view.UniversalSheet<br />        android:id="@+id/layout_submain_leftdialog"<br />        android:layout_width="match_parent"<br />        android:layout_height="match_parent"<br />        android:orientation="vertical"<br />        app:uniSheetPos="bottom"<br />        app:uniSheetStartSize="200dp"<br />        app:uniSheetLength="400dp"<br />        app:uniSheetRadius="10dp"<br />        app:uniSheetBackgroundColor="@color/white"<br />        app:uniSheetHeader="@layout/your header layout"<br />        app:uniSheetHeaderSize="80dp"&gt;<br /><br />        &lt;android.support.v4.widget.NestedScrollView<br />            android:id="@+id/nested_sv"<br />            android:orientation="vertical"<br />            android:layout_width="match_parent"<br />            android:layout_height="wrap_content"&gt;<br /><br />        &lt;LinearLayout<br />            android:layout_width="match_parent"<br />            android:layout_height="wrap_content"<br />            android:orientation="vertical"&gt;<br />       &lt;/LinearLayout&gt;
 <br />&lt;/android.support.v4.widget.NestedScrollView&gt;<br /><br />  &lt;/com.abc.mlz.zz.base.view.UniversalSheet&gt;<br /><br />&lt;/com.abc.mlz.zz.base.view.FrameUniversalSheet&gt;</pre>
-And this example call Universal Sheet from your activity
-<br/>
+<p>And this example call Universal Sheet from your activity
+<br/></p>
 <pre><p>@BindView(R.id.universal_sheet)
 UniversalSheet universalSheet;
 <br />@OnClick(R.id.open)
@@ -88,9 +88,9 @@ you can implement Interface Universal Sheet<br />UniversalSheet.CommUniversalShe
 };<br />universalSheet.setUniversalSheetCallBack(callback);</p>
 </pre>
 <h3>Free Dialog - Release 1.0.2</h3>
-Call default dialog from your activity.<br/>
+<p>Call default dialog from your activity.<br/>
 You can see this example:
-<br />
+<br /></p>
 <pre>new FreeDialog.BuilderFreeDialog()<br />        .setWindowSize(FreeDialog.WindowSize.WRAP_CONTENT)<br />        .setLayout(FreeDialog.Layout.DEFAULT)<br />        .setTextPositifButton("Ok")<br />        .setTextNegativeButton("Cancel")<br />        .setBodyText("Lorem ipsum dolor sit amet, consectetur adipiscing elit, " +<br />                "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. " +<br />                "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris")<br />        .setActionButtonListener(new FreeDialog.CommFreeDialogActionButtonListener() {<br />            @Override<br />            public void ok() { }<br />            @Override<br />            public void cancel() { }<br /><br />            @Override<br />            public void clickIcon(FreeDialog dialog) {<br />                dialog.dismiss();<br />            }<br />        })<br />        .build().show(getSupportFragmentManager(), null);</pre>
 <br/>
 <p>And this example call customizable dialog from your activity
