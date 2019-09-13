@@ -24,4 +24,9 @@
         <item name="android:windowExitAnimation">@anim/out</item>
     </style>
 
+    <style name="DialogDefaultAnimation">
+        <item name="android:windowEnterAnimation">@anim/dialog_default_anim_in</item>
+        <item name="android:windowExitAnimation">@anim/dialog_default_anim_out</item>
+    </style>
+
 </resources>

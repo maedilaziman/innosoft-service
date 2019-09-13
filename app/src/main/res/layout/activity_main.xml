@@ -37,6 +37,14 @@
             android:textSize="18dp"
             android:layout_marginTop="10dp"/>
 
+        <Button
+            android:id="@+id/post4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="OPEN FREE DIALOG"
+            android:textSize="18dp"
+            android:layout_marginTop="10dp"/>
+
     </LinearLayout>
 
     <com.maedi.soft.ino.base.view.FrameUniversalSheet

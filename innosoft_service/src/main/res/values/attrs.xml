@@ -16,4 +16,10 @@
         <attr name="uniSheetHeader" format="reference" />
         <attr name="uniSheetHeaderSize" format="dimension" />
     </declare-styleable>
+
+    <declare-styleable name="CircleImageV1">
+        <attr name="cvBorderWidth" format="dimension"/>
+        <attr name="cvBorderColor" format="color"/>
+        <attr name="cvBackgroundColor" format="color"/>
+    </declare-styleable>
 </resources>

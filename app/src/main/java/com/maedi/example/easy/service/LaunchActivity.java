@@ -23,6 +23,7 @@ import com.maedi.soft.ino.base.presenter.ApiServicePresent;
 import com.maedi.soft.ino.base.store.MapDataParcelable;
 import com.maedi.soft.ino.base.utils.CallApiService;
 import com.maedi.soft.ino.base.utils.EasyData;
+import com.maedi.soft.ino.base.view.FreeDialog;
 import com.maedi.soft.ino.base.view.UniversalSheet;
 
 import java.util.ArrayList;
@@ -58,6 +59,48 @@ public class LaunchActivity extends BuildActivity<View> implements ActivityListe
     @OnClick(R.id.post3)
     public void OpenUniversalSheet() {
         universalSheet.opened();
+    }
+
+    @OnClick(R.id.post4)
+    public void OpenFreeDialog() {
+        new FreeDialog.BuilderFreeDialog()
+                .setWindowSize(FreeDialog.WindowSize.WRAP_CONTENT)
+                //.setCancelable(true)
+                //.setCancelableOnTouchOutside(true)
+                .setLayout(FreeDialog.Layout.DEFAULT)
+                //.setCustomLayout(R.layout.dialog_rehat_leaveon)
+                //.setShowDefaultButton(false)
+                //.setShowCancelButton(false)
+                .setTextPositifButton("Ok")
+                .setTextNegativeButton("Cancel")
+                .setBodyText("Lorem ipsum dolor sit amet, consectetur adipiscing elit, " +
+                        "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. " +
+                        "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris")
+                .setActionButtonListener(new FreeDialog.CommFreeDialogActionButtonListener() {
+                    @Override
+                    public void ok() { }
+                    @Override
+                    public void cancel() { }
+
+                    @Override
+                    public void clickIcon(FreeDialog dialog) {
+                        dialog.dismiss();
+                    }
+                })
+                //.setStyleAnimation(R.style.DialogAnimation)
+                //.setViewListener(new FreeDialog.CommFreeDialogListener() {
+                //    @Override
+                //    public void setView(View view, FreeDialog dialog) {
+                //        LinearLayout layoutSave = (LinearLayout)  view.findViewById(R.id.item_layout_save);
+                //        layoutSave.setOnClickListener(new View.OnClickListener() {
+                //            @Override
+                //            public void onClick(View v) {
+                //                dialog.dismiss();
+                //            }
+                //        });
+                //    }
+                //})
+                .build().show(getSupportFragmentManager(), null);
     }
 
     private ApiServicePresent apiServicePresent;
