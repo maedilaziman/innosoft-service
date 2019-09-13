@@ -88,13 +88,13 @@ you can implement Interface Universal Sheet<br />UniversalSheet.CommUniversalShe
 };<br />universalSheet.setUniversalSheetCallBack(callback);</p>
 </pre>
 <h3>Free Dialog - Release 1.0.2</h3>
-Call default dialog from your activity.</br>
+Call default dialog from your activity.<br/>
 You can see this example:
-\n<br/>
+<br/>
 <pre>new FreeDialog.BuilderFreeDialog()<br />        .setWindowSize(FreeDialog.WindowSize.WRAP_CONTENT)<br />        .setLayout(FreeDialog.Layout.DEFAULT)<br />        .setTextPositifButton("Ok")<br />        .setTextNegativeButton("Cancel")<br />        .setBodyText("Lorem ipsum dolor sit amet, consectetur adipiscing elit, " +<br />                "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. " +<br />                "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris")<br />        .setActionButtonListener(new FreeDialog.CommFreeDialogActionButtonListener() {<br />            @Override<br />            public void ok() { }<br />            @Override<br />            public void cancel() { }<br /><br />            @Override<br />            public void clickIcon(FreeDialog dialog) {<br />                dialog.dismiss();<br />            }<br />        })<br />        .build().show(getSupportFragmentManager(), null);</pre>
-</br>
+<br/>
 And this example call customizable dialog from your activity
-\n<br/>
+<br/>
 <pre>new FreeDialog.BuilderFreeDialog()<br />        .setWindowSize(FreeDialog.WindowSize.WRAP_CONTENT)<br />        .setLayout(FreeDialog.Layout.CUSTOM_LAYOUT)<br />        .setCustomLayout(R.layout.xxx)<br />        .setStyleAnimation(R.style.xxx)<br />        .setViewListener(new FreeDialog.CommFreeDialogListener() {<br />            @Override<br />            public void setView(View view, FreeDialog dialog) {<br />                //this view from your customize layout<br />                //initialize view in here<br />            }<br />        })<br />        .build().show(getSupportFragmentManager(), null);</pre>
 <br/>
 You can see more detailed examples in the <p><a href="https://github.com/maedilaziman/innosoft-service/tree/master/app/src/main/java/com/maedi/example/easy/service">sample app</a></p>
