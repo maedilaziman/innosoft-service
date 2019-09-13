@@ -65,12 +65,7 @@ public class LaunchActivity extends BuildActivity<View> implements ActivityListe
     public void OpenFreeDialog() {
         new FreeDialog.BuilderFreeDialog()
                 .setWindowSize(FreeDialog.WindowSize.WRAP_CONTENT)
-                //.setCancelable(true)
-                //.setCancelableOnTouchOutside(true)
                 .setLayout(FreeDialog.Layout.DEFAULT)
-                //.setCustomLayout(R.layout.dialog_rehat_leaveon)
-                //.setShowDefaultButton(false)
-                //.setShowCancelButton(false)
                 .setTextPositifButton("Ok")
                 .setTextNegativeButton("Cancel")
                 .setBodyText("Lorem ipsum dolor sit amet, consectetur adipiscing elit, " +
@@ -87,19 +82,6 @@ public class LaunchActivity extends BuildActivity<View> implements ActivityListe
                         dialog.dismiss();
                     }
                 })
-                //.setStyleAnimation(R.style.DialogAnimation)
-                //.setViewListener(new FreeDialog.CommFreeDialogListener() {
-                //    @Override
-                //    public void setView(View view, FreeDialog dialog) {
-                //        LinearLayout layoutSave = (LinearLayout)  view.findViewById(R.id.item_layout_save);
-                //        layoutSave.setOnClickListener(new View.OnClickListener() {
-                //            @Override
-                //            public void onClick(View v) {
-                //                dialog.dismiss();
-                //            }
-                //        });
-                //    }
-                //})
                 .build().show(getSupportFragmentManager(), null);
     }
 
