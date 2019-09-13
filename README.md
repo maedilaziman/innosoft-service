@@ -25,6 +25,12 @@ Release 1.0.1
 <pre><span class="pl-en">dependencies</span> {
     implementation <span class="pl-s"><span class="pl-pds">'</span>com.github.maedilaziman:innosoft-service:1.0.1<span class="pl-pds">'</span></span>
 }</pre>
+Release 1.0.2
+</br>
+</br>
+<pre><span class="pl-en">dependencies</span> {
+    implementation <span class="pl-s"><span class="pl-pds">'</span>com.github.maedilaziman:innosoft-service:1.0.2<span class="pl-pds">'</span></span>
+}</pre>
 <h2>Features</h2>
 <ul>
 <li>Call API Service with request parameter.</li>
@@ -32,13 +38,19 @@ Release 1.0.1
 <li>Call API Service to upload File/Image.</li>
 <li>Customize Loading dialog when call API Service.</li>
 </ul>
-<h2>Features release 1.0.1</h2>
+<h2>Add Features release 1.0.1</h2>
 You can easily make sheets from top, bottom, left or right
 <ul>
 <li>Create sheet from top</li>
 <li>Create sheet from Bottom</li>
 <li>Create sheet from Left</li>
 <li>Create sheet from Right</li>
+</ul>
+<h2>Add Features release 1.0.2</h2>
+You can easily make dialog or customizable dialog
+<ul>
+<li>Create default dialog</li>
+<li>Create customizable dialog</li>
 </ul>
 <h2>Usage</h2>
 <h3>API Service</h3>
@@ -75,6 +87,15 @@ public void open() {
 you can implement Interface Universal Sheet<br />UniversalSheet.CommUniversalSheetListener callback = new UniversalSheet.CommUniversalSheetListener(){<br />	@Override&nbsp; public void onOpened() { }<br />	@Override&nbsp; public void onClosed() {&nbsp; }<br />&nbsp; &nbsp; 	@Override&nbsp; public void onHidden() {&nbsp; }<br />&nbsp; &nbsp; &nbsp; &nbsp; @Override&nbsp; public void getHeaderView(View v) {//v is your header view }
 };<br />universalSheet.setUniversalSheetCallBack(callback);</p>
 </pre>
+<h3>Free Dialog - Release 1.0.2</h3>
+Call default dialog from your activity.</br>
+You can see this example:
+<br/>
+<pre>new FreeDialog.BuilderFreeDialog()<br />        .setWindowSize(FreeDialog.WindowSize.WRAP_CONTENT)<br />        .setLayout(FreeDialog.Layout.DEFAULT)<br />        .setTextPositifButton("Ok")<br />        .setTextNegativeButton("Cancel")<br />        .setBodyText("Lorem ipsum dolor sit amet, consectetur adipiscing elit, " +<br />                "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. " +<br />                "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris")<br />        .setActionButtonListener(new FreeDialog.CommFreeDialogActionButtonListener() {<br />            @Override<br />            public void ok() { }<br />            @Override<br />            public void cancel() { }<br /><br />            @Override<br />            public void clickIcon(FreeDialog dialog) {<br />                dialog.dismiss();<br />            }<br />        })<br />        .build().show(getSupportFragmentManager(), null);</pre>
+</br>
+And this example call customizable dialog from your activity
+<br/>
+<pre>new FreeDialog.BuilderFreeDialog()<br />        .setWindowSize(FreeDialog.WindowSize.WRAP_CONTENT)<br />        .setLayout(FreeDialog.Layout.CUSTOM_LAYOUT)<br />        .setCustomLayout(R.layout.xxx)<br />        .setStyleAnimation(R.style.xxx)<br />        .setViewListener(new FreeDialog.CommFreeDialogListener() {<br />            @Override<br />            public void setView(View view, FreeDialog dialog) {<br />                //this view from your customize layout<br />                //initialize view in here<br />            }<br />        })<br />        .build().show(getSupportFragmentManager(), null);</pre>
 <br/>
 You can see more detailed examples in the <p><a href="https://github.com/maedilaziman/innosoft-service/tree/master/app/src/main/java/com/maedi/example/easy/service">sample app</a></p>
 <br/>
