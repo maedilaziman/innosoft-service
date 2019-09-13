@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 9/12/2019. Maedi Laziman, Email: maedilaziman@gmail.com.
+  -->
+
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shareInterpolator="false"
+    android:fillAfter="true"
+    android:fillEnabled="true" >
+    <translate android:duration="300"
+        android:fromXDelta="10%p"
+        android:toXDelta="0%p" />
+    <alpha android:duration="800" android:fromAlpha="0.0" android:toAlpha="1.0" />
+</set>

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 9/12/2019. Maedi Laziman, Email: maedilaziman@gmail.com.
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    android:orientation="vertical">
+
+    <com.maedi.soft.ino.base.view.CircleImageV1
+        android:id="@+id/icon"
+        android:layout_width="36dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="30dp"
+        android:layout_marginBottom="-18dp"
+        android:src="@drawable/ic_mdi_close_new2"
+        android:scaleType="centerCrop"
+        android:elevation="4dp"
+        app:cvBorderWidth="5dp"
+        app:cvBorderColor="@android:color/white"
+        app:cvBackgroundColor="@android:color/white"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/background_dialog_default_style"
+        android:orientation="vertical">
+
+        <android.support.v4.widget.NestedScrollView
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/main_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:paddingBottom="12dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/body_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16dp"
+                        android:textColor="#56585A"
+                        android:text="Title" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/default_button_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="50dp">
+
+                    <LinearLayout
+                        android:id="@+id/yes"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/background_button_dialog_default"
+                        android:layout_marginRight="8dp"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="8dp"
+                            android:background="#dd232323"
+                            android:gravity="center">
+
+                            <TextView
+                                android:id="@+id/text_yes"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="OK"
+                                android:textSize="16dp"
+                                android:textColor="@android:color/white"
+                                android:textStyle="bold"/>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/not"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/background_button_dialog_default"
+                        android:layout_marginLeft="8dp"
+                        android:gravity="center">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="8dp"
+                            android:background="#666666"
+                            android:gravity="center">
+
+                            <TextView
+                                android:id="@+id/text_not"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="CANCEL"
+                                android:textSize="16dp"
+                                android:textColor="@android:color/white"
+                                android:textStyle="bold"/>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </android.support.v4.widget.NestedScrollView>
+
+    </LinearLayout>
+
+</LinearLayout>
