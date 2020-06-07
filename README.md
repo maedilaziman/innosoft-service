@@ -52,6 +52,18 @@ You can easily make sheets from top, bottom, left or right
 <li>Create sheet from Left</li>
 <li>Create sheet from Right</li>
 </ul>
+<h2>Features release 1.0.2</h2>
+You can easily make simple and beauty dialog
+<ul>
+<li>Create simple and beauty dialog</li>
+<li>Create custom dialog</li>
+</ul>
+<h2>Features release 1.0.3</h2>
+<ul>
+<li>Add secure activities</li>
+<li>Handle null data</li>
+<li>Handle offline network connection</li>
+</ul>
 <h2>Usage</h2>
 <h3>API Service</h3>
 First you need to set @HeaderService property in Application context class,</br>and if you want to set analytics, you just add @SetAnalytics default is true.</br>
