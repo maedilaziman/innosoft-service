@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="gray">#bdbdbd</color>
+    <color name="white">#ffffff</color>
+    <color name="em_white_54">#89ffffff</color>
+    <color name="blue_ocean">#4394D0</color>
+    <color name="em_black_100">#ff232323</color>
+    <color name="em_black_87">#dd232323</color>
+    <color name="em_black_58">#95232323</color>
+    <color name="em_transparent">#00000000</color>
+
+</resources>

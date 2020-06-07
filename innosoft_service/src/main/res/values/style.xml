@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="DialogProgressAnimation">
+        <item name="android:windowEnterAnimation">@anim/zoom_in_from_midle</item>
+        <item name="android:windowExitAnimation">@anim/zoom_out_from_midle</item>
+    </style>
+
+    <style name="CustomLoadingDialog" >
+        <item name="android:bottomBright">@android:color/transparent</item>
+        <item name="android:bottomDark">@android:color/transparent</item>
+        <item name="android:bottomMedium">@android:color/transparent</item>
+        <item name="android:centerBright">@android:color/transparent</item>
+        <item name="android:centerDark">@android:color/transparent</item>
+        <item name="android:centerMedium">@android:color/transparent</item>
+        <item name="android:fullBright">@android:color/transparent</item>
+        <item name="android:fullDark">@android:color/transparent</item>
+        <item name="android:topBright">@android:color/transparent</item>
+        <item name="android:topDark">@android:color/transparent</item>
+    </style>
+
+    <style name="DialogInOut">
+        <item name="android:windowEnterAnimation">@anim/in</item>
+        <item name="android:windowExitAnimation">@anim/out</item>
+    </style>
+
+    <style name="DialogDefaultAnimation">
+        <item name="android:windowEnterAnimation">@anim/dialog_default_anim_in</item>
+        <item name="android:windowExitAnimation">@anim/dialog_default_anim_out</item>
+    </style>
+
+</resources>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="UniversalSheet">
+        <attr name="uniSheetRadius" format="dimension"/>
+        <attr name="uniSheetStartSize" format="dimension" />
+        <attr name="uniSheetLength" format="dimension">
+            <enum name="full_length" value="-1" />
+        </attr>
+        <attr name="uniSheetPos">
+            <flag name="top" value="0" />
+            <flag name="bottom" value="1" />
+            <flag name="right" value="2" />
+            <flag name="left" value="3" />
+        </attr>
+        <attr name="uniSheetBackgroundColor" format="color" />
+        <attr name="uniSheetHeader" format="reference" />
+        <attr name="uniSheetHeaderSize" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="CircleImageV1">
+        <attr name="cvBorderWidth" format="dimension"/>
+        <attr name="cvBorderColor" format="color"/>
+        <attr name="cvBackgroundColor" format="color"/>
+    </declare-styleable>
+
+    <declare-styleable name="SimpleProgressBarLoadingData">
+        <attr name="widthProgressBar" format="dimension"/>
+        <attr name="heightProgressBar" format="dimension" />
+        <attr name="visibilityProgressBar" format="integer" />
+    </declare-styleable>
+
+</resources>
