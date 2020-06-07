@@ -99,9 +99,13 @@ public void open() {
 you can implement Interface Universal Sheet<br />UniversalSheet.CommUniversalSheetListener callback = new UniversalSheet.CommUniversalSheetListener(){<br />	@Override&nbsp; public void onOpened() { }<br />	@Override&nbsp; public void onClosed() {&nbsp; }<br />&nbsp; &nbsp; 	@Override&nbsp; public void onHidden() {&nbsp; }<br />&nbsp; &nbsp; &nbsp; &nbsp; @Override&nbsp; public void getHeaderView(View v) {//v is your header view }
 };<br />universalSheet.setUniversalSheetCallBack(callback);</p>
 </pre>
-<br/>
+<h3>Free Dialog - Release 1.0.2</h3>
+Show default free dialog example:
+<br />
+<pre>new FreeDialog.BuilderFreeDialog()<br />        .setWindowSize(FreeDialog.WindowSize.WRAP_CONTENT)<br />        .setLayout(FreeDialog.Layout.DEFAULT)<br />        .setTextPositifButton("Ok")<br />        .setTextNegativeButton("Cancel")<br />        .setBodyText("Lorem ipsum dolor sit amet, consectetur adipiscing elit, " +<br />                "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. " +<br />                "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris")<br />        .setActionButtonListener(new FreeDialog.CommFreeDialogActionButtonListener() {<br />            @Override<br />            public void ok() { }<br />            @Override<br />            public void cancel() { }<br /><br />            @Override<br />            public void clickIcon(FreeDialog dialog) {<br />                dialog.dismiss();<br />            }<br />        })<br />        .build().show(getSupportFragmentManager(), null);</pre>
+<br />
 You can see more detailed examples in the <p><a href="https://github.com/maedilaziman/innosoft-service/tree/master/app/src/main/java/com/maedi/example/easy/service">sample app</a></p>
-<br/>
+<br />
 That's it!
 </br>
 <h2>License</h2>
