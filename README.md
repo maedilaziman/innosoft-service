@@ -25,13 +25,13 @@ Release 1.0.1
 <pre><span class="pl-en">dependencies</span> {
     implementation <span class="pl-s"><span class="pl-pds">'</span>com.github.maedilaziman:innosoft-service:1.0.1<span class="pl-pds">'</span></span>
 }</pre>
-Release 1.0.1
+Release 1.0.2
 </br>
 </br>
 <pre><span class="pl-en">dependencies</span> {
     implementation <span class="pl-s"><span class="pl-pds">'</span>com.github.maedilaziman:innosoft-service:1.0.2<span class="pl-pds">'</span></span>
 }</pre>
-Release 1.0.1
+Release 1.0.3
 </br>
 </br>
 <pre><span class="pl-en">dependencies</span> {
