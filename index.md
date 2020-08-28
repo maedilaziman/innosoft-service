@@ -81,8 +81,6 @@
 <br/>
 <br/>
 <h2> Support or Contact </h2>
-
+If you any question or bussiness offering, please send email to <h4>maedilaziman@gmail.com</h4>
 </body>
 </html>
-
-If you any question or bussiness offering, please send email to <h4>maedilaziman@gmail.com</h4>
