@@ -77,10 +77,12 @@
 <p>If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact
     us.</p>
     
+<br/>
+<br/>
+<br/>
+<h2> Support or Contact </h2>
+
 </body>
 </html>
-
-
-## Support or Contact
 
 If you any question or bussiness offering, please send email to <h4>maedilaziman@gmail.com</h4>
