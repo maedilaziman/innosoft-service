@@ -1,7 +1,6 @@
 ## Welcome to My Product, Hanif Cafe
-
-<html>
-<body>
+<br/>
+<br/>
 <h2>Privacy Policy</h2>
 <p>Hanif Cafe built the HanifCafe app as a free app. This SERVICE is provided by Hanif Cafe and is intended
     for use as is.</p>
@@ -75,12 +74,8 @@
 
 <p><strong>Contact Us</strong></p>
 <p>If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact
-    us.</p>
-    
-<br/>
+    us.</p> 
 <br/>
 <br/>
 <h2> Support or Contact </h2>
 If you any question or bussiness offering, please send email to <h4>maedilaziman@gmail.com</h4>
-</body>
-</html>
